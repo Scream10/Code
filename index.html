@@ -17,11 +17,11 @@
     <body>
         <main class="container" ng-controller="ChatController">
             <div class="banner">
-                <img src="./assets/Jumping CC.svg">
+                <img src="./assets/Jumping_CC.svg" alt="logo">
             </div>
             <div class="chatbox">
                 <div class="chatbox__header">
-                    <img src="assets/_MG_9428.jpg" alt="opératrice">
+                    <img src="assets/_MG_9428.jpg" alt="operateur picture">
                     <div>
                         <h4>Opératrice</h4>
                         <p><small>Actif</small></p>
@@ -38,14 +38,14 @@
                         <div class="chatbox__content">
                             <img class="chatbox__pictures"
                             ng-src="{{message.img}}"
-                            ng-class="{left:message.me}">
+                            ng-class="{left:message.me}" alt="profil picture">
                             <p class="chatbox__messages">{{message.message}}</p>
                         </div>
                     </div>
                 </div>
                 <div class="chatbox__writing" ng-if="messageInput">
                     <div ng-class="{show:messageInput}">
-                        <img ng-src="{{messageInput.img}}">
+                        <img ng-src="{{messageInput.img}}" alt="profil picture">
                         <p>{{messageInput.author}} écrit ...</p>
                     </div>
                 </div>
