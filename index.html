@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="chatApp">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Chatbox permettant aux utilisateurs
+        d'échanger avec un opérateur."/>
+        <title>Lucca | Chatbox</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+        <script src="./app.js"></script>
+        <link rel="stylesheet" href="build/style.css">
+    </head>
+    <body>
+        <main class="container" ng-controller="ChatController">
+            <div class="banner">
+                <img src="./assets/Jumping CC.svg">
+            </div>
+            <div class="chatbox">
+                <div class="chatbox__container">
+                    <div class="chatbox__box" ng-repeat="message in messages">
+                        <p>
+                            <b>{{message.author}}</b>
+                            {{message.time | date:'yyyy-MM-dd HH:mm:ss Z'}}
+                        </p>
+                        <img class="chatbox__pictures" ng-src="{{message.img}}"
+                        ng-class="{left:message.me}">
+                        <p class="chatbox__messages">{{message.message}}</p>
+                    </div>
+                </div>
+                <div class="chatbox__writing" ng-if="messageInput">
+                    <div ng-class="{show:messageInput}">
+                        <img ng-src="{{messageInput.img}}">
+                        <p>{{messageInput.author}} écrit ...</p>
+                    </div>
+                </div>
+                <div class="chatbox__form">
+                    <form ng-submit="sendMessage()">
+                        <input placeholder="Envoyer un message"
+                        ng-model="currentMessage" ng-change="updateInput()">
+                        <button>send</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
