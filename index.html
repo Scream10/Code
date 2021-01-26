@@ -10,6 +10,9 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
         <script src="./app.js"></script>
         <link rel="stylesheet" href="build/style.css">
+        <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+        rel="stylesheet">
     </head>
     <body>
         <main class="container" ng-controller="ChatController">
@@ -17,15 +20,27 @@
                 <img src="./assets/Jumping CC.svg">
             </div>
             <div class="chatbox">
+                <div class="chatbox__header">
+                    <img src="assets/_MG_9428.jpg" alt="opératrice">
+                    <div>
+                        <h4>Opératrice</h4>
+                        <p><small>Actif</small></p>
+                    </div>
+                </div>
                 <div class="chatbox__container">
                     <div class="chatbox__box" ng-repeat="message in messages">
                         <p>
-                            <b>{{message.author}}</b>
-                            {{message.time | date:'yyyy-MM-dd HH:mm:ss Z'}}
+                            <small>
+                                <b>{{message.author}}</b>
+                                {{message.time | date:'dd/MM/yyyy - HH:mm'}}
+                            </small>
                         </p>
-                        <img class="chatbox__pictures" ng-src="{{message.img}}"
-                        ng-class="{left:message.me}">
-                        <p class="chatbox__messages">{{message.message}}</p>
+                        <div class="chatbox__content">
+                            <img class="chatbox__pictures"
+                            ng-src="{{message.img}}"
+                            ng-class="{left:message.me}">
+                            <p class="chatbox__messages">{{message.message}}</p>
+                        </div>
                     </div>
                 </div>
                 <div class="chatbox__writing" ng-if="messageInput">
@@ -38,7 +53,9 @@
                     <form ng-submit="sendMessage()">
                         <input placeholder="Envoyer un message"
                         ng-model="currentMessage" ng-change="updateInput()">
-                        <button>send</button>
+                        <button>
+                            <img src="assets/Send.svg" alt="send logo">
+                        </button>
                     </form>
                 </div>
             </div>
