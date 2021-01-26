@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="chatApp">
+<html lang="en" data-ng-app="chatApp">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +16,7 @@
         rel="stylesheet">
     </head>
     <body>
-        <main class="container" ng-controller="ChatController">
+        <main class="container" data-ng-controller="ChatController">
             <div class="banner">
                 <img src="./assets/Jumping_CC.svg" alt="logo">
             </div>
@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="chatbox__container">
-                    <div class="chatbox__box" ng-repeat="message in messages">
+                    <div class="chatbox__box" data-ng-repeat="message in messages">
                         <p>
                             <small>
                                 <b>{{message.author}}</b>
@@ -43,22 +43,22 @@
                         </p>
                         <div class="chatbox__content">
                             <img class="chatbox__pictures"
-                            ng-src="{{message.img}}"
-                            ng-class="{left:message.me}" alt="profil picture">
+                            data-ng-src="{{message.img}}"
+                            data-ng-class="{left:message.me}" alt="profil picture">
                             <p class="chatbox__messages">{{message.message}}</p>
                         </div>
                     </div>
                 </div>
-                <div class="chatbox__writing" ng-if="messageInput">
-                    <div ng-class="{show:messageInput}">
-                        <img ng-src="{{messageInput.img}}" alt="profil picture">
+                <div class="chatbox__writing" data-ng-if="messageInput">
+                    <div data-ng-class="{show:messageInput}">
+                        <img data-ng-src="{{messageInput.img}}" alt="profil picture">
                         <p>{{messageInput.author}} écrit ...</p>
                     </div>
                 </div>
                 <div class="chatbox__form">
-                    <form ng-submit="sendMessage()">
+                    <form data-ng-submit="sendMessage()">
                         <input placeholder="Envoyer un message"
-                        ng-model="currentMessage" ng-change="updateInput()">
+                        data-ng-model="currentMessage" data-ng-change="updateInput()">
                         <button>
                             <img src="assets/Send.svg" alt="send logo">
                         </button>
