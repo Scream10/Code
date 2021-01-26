@@ -34,7 +34,8 @@
                     </div>
                 </div>
                 <div class="chatbox__container">
-                    <div class="chatbox__box" data-ng-repeat="message in messages">
+                    <div class="chatbox__box" data-ng-repeat="message in
+                    messages">
                         <p>
                             <small>
                                 <b>{{message.author}}</b>
@@ -42,23 +43,26 @@
                             </small>
                         </p>
                         <div class="chatbox__content">
-                            <img class="chatbox__pictures"
+                            <img class="chatbox__pictures" src="assets"
                             data-ng-src="{{message.img}}"
-                            data-ng-class="{left:message.me}" alt="profil picture">
+                            data-ng-class="{left:message.me}" alt="profil
+                            picture">
                             <p class="chatbox__messages">{{message.message}}</p>
                         </div>
                     </div>
                 </div>
                 <div class="chatbox__writing" data-ng-if="messageInput">
                     <div data-ng-class="{show:messageInput}">
-                        <img data-ng-src="{{messageInput.img}}" alt="profil picture">
+                        <img src="assets" data-ng-src="{{messageInput.img}}"
+                        alt="profil picture">
                         <p>{{messageInput.author}} écrit ...</p>
                     </div>
                 </div>
                 <div class="chatbox__form">
                     <form data-ng-submit="sendMessage()">
                         <input placeholder="Envoyer un message"
-                        data-ng-model="currentMessage" data-ng-change="updateInput()">
+                        data-ng-model="currentMessage"
+                        data-ng-change="updateInput()">
                         <button>
                             <img src="assets/Send.svg" alt="send logo">
                         </button>
