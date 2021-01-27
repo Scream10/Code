@@ -22,8 +22,8 @@
   width: 100%;
 }
 .banner img {
+  background: #006666;
   border-radius: 50%;
-  background: #909090;
   padding: 22px;
   position: absolute;
   left: 20%;
@@ -32,8 +32,12 @@
   height: 130px;
 }
 
-.banner, .banner img {
+.banner, .chatbox__header {
   background: #006666;
+  background: -moz-linear-gradient(143deg, #006666 65%, #0f98d0 100%);
+  background: -webkit-linear-gradient(143deg, #006666 65%, #0f98d0 100%);
+  background: linear-gradient(143deg, #006666 65%, #0f98d0 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#006666",endColorstr="#0f98d0",GradientType=1);
   z-index: 1;
 }
 
@@ -42,14 +46,27 @@
     max-width: 100%;
   }
 }
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 490px) {
   .chatbox {
     max-width: 80%;
   }
 }
 @media screen and (min-width: 768px) {
   .chatbox {
-    max-width: 80%;
+    max-width: 70%;
+  }
+
+  #chatbox-label img {
+    right: 14.8% !important;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .chatbox {
+    max-width: 60%;
+  }
+
+  #chatbox-label img {
+    right: 20% !important;
   }
 }
 .chatbox {
@@ -69,11 +86,13 @@
   overflow: auto;
 }
 .chatbox .chatbox__header {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   height: 70px;
   width: 100%;
   padding: 8px 16px;
-  background-color: #006666;
 }
 .chatbox .chatbox__header div {
   position: relative;
@@ -107,15 +126,16 @@
   object-fit: cover;
 }
 .chatbox .chatbox__container, .chatbox .chatbox__writing {
-  min-width: 350px;
+  width: 100%;
   margin: auto;
 }
 .chatbox .chatbox__container {
   position: absolute;
   top: 70px;
-  height: 410px;
+  height: calc(100% - 70px);
   width: 100%;
   padding: 20px 20px 60px 20px;
+  background-color: white;
   overflow-y: scroll;
 }
 .chatbox .chatbox__container div.chatbox__box:nth-child(2n) p.chatbox__messages {
@@ -126,9 +146,8 @@
   margin-bottom: 10px;
 }
 .chatbox .chatbox__container .chatbox__box > p {
-  position: relative;
-  left: 50px;
   text-align: left;
+  padding: 0 50px;
   margin-bottom: 6px;
   color: #333;
   width: 100%;
@@ -154,6 +173,7 @@
   border-bottom-right-radius: 0px;
   color: white;
   min-width: 40px;
+  max-width: 90%;
 }
 
 .chatbox__box:nth-child(2n+1) .chatbox__content {
@@ -173,7 +193,13 @@
 .chatbox__writing {
   position: absolute;
   height: 50px;
-  bottom: 70px;
+  bottom: 58px;
+  border-top: 1px solid #dfdfdf;
+  background-color: white;
+}
+.chatbox__writing .show {
+  display: flex;
+  align-items: center;
 }
 .chatbox__writing img {
   position: relative;
@@ -182,7 +208,7 @@
 }
 .chatbox__writing p {
   background: white;
-  width: 400px;
+  width: 100%;
 }
 
 .chatbox__form {
@@ -193,6 +219,7 @@
   right: 0;
   bottom: 0;
   text-align: center;
+  background-color: white;
 }
 .chatbox__form form {
   display: flex;
@@ -221,15 +248,15 @@
   outline: none;
 }
 .chatbox__form form button:focus > img {
-  transition: transform 0.6s ease-in-out;
-  transform: rotate(45deg);
+  transition: transform 0.3s ease-in-out;
+  transform: scale(0.7);
 }
 .chatbox__form form button img {
   filter: invert(30%) sepia(12%) saturate(5685%) hue-rotate(144deg) brightness(50%) contrast(80%);
 }
 
-label img {
-  background-color: #006666;
+#chatbox-label img {
+  background: #006666;
   border-radius: 50%;
   padding: 8px;
   position: absolute;
@@ -241,27 +268,27 @@ label img {
   transition: all 0.3s ease;
 }
 
-label img:nth-child(2n) {
+#chatbox-label img:nth-child(2n) {
   opacity: 0;
   pointer-events: none;
 }
 
-#click {
+#chatbox-toggle {
   display: none;
 }
 
-#click:checked ~ label img:nth-child(2n) {
+#chatbox-toggle:checked ~ #chatbox-label img:nth-child(2n) {
   opacity: 1;
   pointer-events: auto;
   transform: rotate(180deg);
 }
 
-#click:checked ~ label img {
+#chatbox-toggle:checked ~ #chatbox-label img {
   opacity: 1;
   pointer-events: auto;
 }
 
-#click:checked ~ .chatbox {
+#chatbox-toggle:checked ~ .chatbox {
   opacity: 1;
   pointer-events: auto;
   bottom: 110px;
