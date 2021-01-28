@@ -36,12 +36,7 @@
                 <div class="chatbox__container">
                     <div class="chatbox__box" data-ng-repeat="message in
                     messages">
-                        <p>
-                            <small>
-                                <b>{{message.author}}</b>
-                                {{message.time | date:'dd/MM/yyyy - HH:mm'}}
-                            </small>
-                        </p>
+                        <p><b>{{message.author}}</b></p>
                         <div class="chatbox__content">
                             <img class="chatbox__pictures" src="assets"
                             data-ng-src="{{message.img}}"
@@ -49,6 +44,7 @@
                             picture">
                             <p class="chatbox__messages">{{message.message}}</p>
                         </div>
+                        <p class="chatbox__date">{{message.time | date:'dd/MM/yyyy - HH:mm'}}</p>
                     </div>
                 </div>
                 <div class="chatbox__writing" data-ng-if="messageInput">
