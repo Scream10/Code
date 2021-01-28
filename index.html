@@ -38,13 +38,17 @@
                     messages">
                         <p><b>{{message.author}}</b></p>
                         <div class="chatbox__content">
+                            <!-- J'ai ajouté src="//:0" pour envoyer sur un port
+                            qui n'existe pas, le temps que le JS mette la src
+                            -->
                             <img class="chatbox__pictures" src="//:0"
                             data-ng-src="{{message.img}}"
                             data-ng-class="{left:message.me}" alt="profil
                             picture">
                             <p class="chatbox__messages">{{message.message}}</p>
                         </div>
-                        <p class="chatbox__date">{{message.time | date:'dd/MM/yyyy - HH:mm'}}</p>
+                        <p class="chatbox__date">{{message.time |
+                        date:'dd/MM/yyyy - HH:mm'}}</p>
                     </div>
                 </div>
                 <div class="chatbox__writing" data-ng-if="messageInput">
