@@ -31,7 +31,7 @@ Un chef de produit vient vous voir pour créer une page de chat dans son produit
 
 Les src des images ne sont pas renseingées dans le HTML car elles sont chargées plus tard par le JS. Cela a posé le dilemme suivant :
 
-    - Soit je laissais les src vide et j'obtenais une erreur dans la console.
+- Soit je laissais les src vide et j'obtenais une erreur dans la console.
 
-    - Soit je mettais src="//:O", en designant un faux port je laissais le temps au JS de chargé les src, et je n'avais ainsi plus d'erreur dans la console. Cependant le [test](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcode-inky.vercel.app%2F) sur Validator W3C obtenait deux erreurs, et cela a une incidence sur le référencement. 
+- Soit je mettais src="//:O", en designant un faux port je laissais le temps au JS de chargé les src, et je n'avais ainsi plus d'erreur dans la console. Cependant le [test](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcode-inky.vercel.app%2F) sur Validator W3C obtenait deux erreurs, et cela a une incidence sur le référencement. 
 
